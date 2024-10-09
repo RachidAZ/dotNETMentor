@@ -1,0 +1,6 @@
+@NETMentor_HostAddress = http://localhost:5069
+
+GET {{NETMentor_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
