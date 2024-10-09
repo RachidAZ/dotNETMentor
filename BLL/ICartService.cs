@@ -1,4 +1,5 @@
 ﻿using e_commerce.BLL.Entities;
+using NETMentor.BLL;
 
 namespace e_commerce.BLL;
 
@@ -6,10 +7,10 @@ public interface ICartService
 {
 
     IEnumerable<Item> GetCartItems(Guid idCart);
-    void AddCartItem(Guid cartId, Item item);
+    Result<Cart> AddCartItem(Guid cartId, Item item);
     void RemoveCartItem( Item item);
 
-    Cart GetCart(Guid cartId);
+    Result<Cart> GetCart(Guid cartId);
 
     void CreateCart(Guid id);
 }

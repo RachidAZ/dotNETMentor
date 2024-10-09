@@ -1,6 +1,8 @@
 ﻿using e_commerce.BLL.Entities;
 using e_commerce.DAL;
 using Microsoft.AspNetCore.Cors.Infrastructure;
+using Microsoft.AspNetCore.Http.HttpResults;
+using NETMentor.BLL;
 using NETMentor.DAL;
 using System;
 using System.Collections.Generic;
@@ -8,54 +10,65 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace e_commerce.BLL
+namespace e_commerce.BLL;
+
+public class CartService : ICartService
 {
-    internal class CartService : ICartService
+
+    private readonly IRepository<Cart, Guid> _cartRepository;
+    private readonly IRepository<Item, int> _itemRepository;
+
+    public CartService(IRepository<Cart, Guid> repositoryCart, IRepository<Item, int> repositoryItem)
     {
+        this._cartRepository = repositoryCart;
+        this._itemRepository = repositoryItem;
+    }
 
-        private readonly IRepository<Cart, Guid> _cartRepository;
-        private readonly IRepository<Item, int> _itemRepository;
+    public void CreateCart(Guid id)
+    {
+        var c = new Cart(id);
+        _cartRepository.Add(c);
+    }
 
-        public CartService(IRepository<Cart, Guid> repositoryCart, IRepository<Item, int> repositoryItem)
-        {
-            this._cartRepository = repositoryCart;
-            this._itemRepository = repositoryItem;
-        }
+    public Result<Cart> AddCartItem(Guid cartId, Item item)
+    {
+        
+        var cartResult = GetCart(cartId);
 
-        public void CreateCart(Guid id)
-        {
-            var c = new Cart(id);
-            _cartRepository.Add(c);
-        }
+        if (!cartResult.IsSuccess)
+            return Result<Cart>.Failure(cartResult.Error);
 
-        public void AddCartItem(Guid cartId, Item item)
-        {
-            
-            var cart = GetCart(cartId);
-            cart.Items.Add(item);
 
-            _itemRepository.Add(item);
-            _cartRepository.Update(cart);
+        cartResult.Value.Items.Add(item);
 
-        }
+        _itemRepository.Add(item);
 
-        public Cart GetCart(Guid cartId)
-        {
-            return _cartRepository.GetByKey(cartId);
-        }
+        return Result<Cart>.Success(cartResult.Value);
 
-        public IEnumerable<Item> GetCartItems(Guid idCart)
-        {
-            //Cart cart = _cartRepository.GetByKey(idCart);
-            return _itemRepository.GetAll().Where(x => x.CartId == idCart);
-            //return cart.Items;   
-        }
+       //_cartRepository.Update(cart);
 
-        public void RemoveCartItem( Item item)
-        {
-            // _cartRepository.GetByKey(cartId).Items.Remove(item);
-            _itemRepository.Delete(item);
+    }
 
-        }
+    public Result<Cart> GetCart(Guid cartId)
+    {
+        var cart = _cartRepository.GetByKey(cartId);
+        if (cart is null)
+            return Result<Cart>.Failure("Cart Unfound");
+        else
+            return Result<Cart>.Success(cart);  
+    }
+
+    public IEnumerable<Item> GetCartItems(Guid idCart)
+    {
+        //Cart cart = _cartRepository.GetByKey(idCart);
+        return _itemRepository.GetAll().Where(x => x.CartId == idCart);
+        //return cart.Items;   
+    }
+
+    public void RemoveCartItem( Item item)
+    {
+        // _cartRepository.GetByKey(cartId).Items.Remove(item);
+        _itemRepository.Delete(item);
+
     }
 }
