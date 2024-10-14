@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.10.35122.118
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETMentor", "NETMentor.csproj", "{C2B074A0-D03F-4A7A-996E-8E9CC45BEAC0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestNETMentor", "..\test\TestNETMentor\TestNETMentor.csproj", "{2F0D0224-F6DF-4E22-B22B-4BF54F981013}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B96874FB-93F6-4AC8-A510-FBC8E10E09D6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{C796E3FE-8E8C-404C-9AEF-321138B8ACA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2B074A0-D03F-4A7A-996E-8E9CC45BEAC0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2B074A0-D03F-4A7A-996E-8E9CC45BEAC0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2B074A0-D03F-4A7A-996E-8E9CC45BEAC0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2B074A0-D03F-4A7A-996E-8E9CC45BEAC0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2F0D0224-F6DF-4E22-B22B-4BF54F981013}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2F0D0224-F6DF-4E22-B22B-4BF54F981013}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2F0D0224-F6DF-4E22-B22B-4BF54F981013}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2F0D0224-F6DF-4E22-B22B-4BF54F981013}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{C2B074A0-D03F-4A7A-996E-8E9CC45BEAC0} = {B96874FB-93F6-4AC8-A510-FBC8E10E09D6}
+		{2F0D0224-F6DF-4E22-B22B-4BF54F981013} = {C796E3FE-8E8C-404C-9AEF-321138B8ACA3}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E3119588-E2BA-40BB-B219-998F18D9126F}
+	EndGlobalSection
+EndGlobal
