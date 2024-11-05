@@ -1,3 +1,4 @@
+using Asp.Versioning;
 using CartService.BLL;
 using CartService.BLL.Entities;
 using CartService.DAL;
@@ -7,8 +8,25 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
 
+// api versioning
+builder.Services.AddApiVersioning(options =>
+{
+    options.DefaultApiVersion = new ApiVersion(1);
+    options.ReportApiVersions = true;
+    options.AssumeDefaultVersionWhenUnspecified = true;
+    options.ApiVersionReader = ApiVersionReader.Combine(
+        new UrlSegmentApiVersionReader());
+})
+.AddMvc()
+.AddApiExplorer(options =>
+{
+    options.GroupNameFormat = "'v'V";
+    options.SubstituteApiVersionInUrl = true;
+});
+
+
+// Add services to the container.
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -27,6 +45,7 @@ options.UseMongoDB(builder.Configuration.GetConnectionString("CartService_mongoD
 builder.Services.AddScoped<IRepository<Cart, Guid>, Repository<Cart, Guid>>();
 builder.Services.AddScoped<IRepository<Item, int>, Repository<Item, int>>();
 builder.Services.AddScoped<ICartService, CartService.BLL.CartService>();
+
 
 var app = builder.Build();
 

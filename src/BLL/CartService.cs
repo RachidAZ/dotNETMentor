@@ -2,8 +2,6 @@
 using CartService.DAL;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Http.HttpResults;
-using CartService.BLL;
-using CartService.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -58,11 +56,21 @@ public class CartService : ICartService
             return Result<Cart>.Success(cart);  
     }
 
+    public Cart GetCartItemsAsCart(Guid idCart)
+    {
+      
+        var items= _itemRepository.GetAll().Where(x => x.CartId == idCart);
+        var cart=new Cart(idCart) { Items = items.ToList() };
+        return cart;
+
+
+    }
+
     public IEnumerable<Item> GetCartItems(Guid idCart)
     {
-        //Cart cart = _cartRepository.GetByKey(idCart);
+     
         return _itemRepository.GetAll().Where(x => x.CartId == idCart);
-        //return cart.Items;   
+     
     }
 
     public void RemoveCartItem( Item item)

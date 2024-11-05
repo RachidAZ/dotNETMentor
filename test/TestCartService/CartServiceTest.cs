@@ -1,7 +1,6 @@
 using CartService.BLL;
 using CartService.BLL.Entities;
 using Microsoft.AspNetCore.Cors.Infrastructure;
-using CartService.BLL;
 using Xunit;
 
 namespace TestCartService;

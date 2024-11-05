@@ -7,6 +7,7 @@ public interface ICartService
 {
 
     IEnumerable<Item> GetCartItems(Guid idCart);
+    Cart GetCartItemsAsCart(Guid idCart);
     Result<Cart> AddCartItem(Guid cartId, Item item);
     void RemoveCartItem( Item item);
 
