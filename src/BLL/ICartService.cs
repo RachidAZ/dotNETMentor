@@ -1,7 +1,7 @@
-﻿using e_commerce.BLL.Entities;
-using NETMentor.BLL;
+﻿using CartService.BLL.Entities;
+using CartService.BLL;
 
-namespace e_commerce.BLL;
+namespace CartService.BLL;
 
 public interface ICartService
 {

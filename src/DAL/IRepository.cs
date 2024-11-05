@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace e_commerce.DAL;
+namespace CartService.DAL;
 
 
     public interface IRepository<T, TKey> where T: class

@@ -1,6 +1,6 @@
-@NETMentor_HostAddress = http://localhost:5069
+@CartService_HostAddress = http://localhost:5069
 
-GET {{NETMentor_HostAddress}}/weatherforecast/
+GET {{CartService_HostAddress}}/weatherforecast/
 Accept: application/json
 
 ###

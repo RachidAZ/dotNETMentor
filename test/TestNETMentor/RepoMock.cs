@@ -1,12 +1,12 @@
-﻿using e_commerce.BLL.Entities;
-using e_commerce.DAL;
+﻿using CartService.BLL.Entities;
+using CartService.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestNETMentor
+namespace TestCartService
 {
     public class RepoMock : IRepository<Cart, Guid> , IRepository<Item, int>
     {

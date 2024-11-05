@@ -1,9 +1,9 @@
-﻿using e_commerce.BLL;
-using e_commerce.BLL.Entities;
-using e_commerce.DAL;
+﻿using CartService.BLL;
+using CartService.BLL.Entities;
+using CartService.DAL;
 using Microsoft.AspNetCore.Mvc;
 
-namespace NETMentor.Controllers;
+namespace CartService.Controllers;
 
 [ApiController]
 [Route("[controller]")]

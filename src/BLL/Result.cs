@@ -1,4 +1,4 @@
-﻿namespace NETMentor.BLL;
+﻿namespace CartService.BLL;
 
 public class Result<T>
 {

@@ -1,10 +1,10 @@
-using e_commerce.BLL;
-using e_commerce.BLL.Entities;
+using CartService.BLL;
+using CartService.BLL.Entities;
 using Microsoft.AspNetCore.Cors.Infrastructure;
-using NETMentor.BLL;
+using CartService.BLL;
 using Xunit;
 
-namespace TestNETMentor;
+namespace TestCartService;
 
 public class CartServiceTest
 {
@@ -13,7 +13,7 @@ public class CartServiceTest
     public CartServiceTest()
     {
 
-        _cartService = new CartService(new RepoMock(), new RepoMock());
+        _cartService = new CartService.BLL.CartService(new RepoMock(), new RepoMock());
 
       
 

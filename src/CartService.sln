@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.10.35122.118
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NETMentor", "NETMentor.csproj", "{C2B074A0-D03F-4A7A-996E-8E9CC45BEAC0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CartService", "CartService.csproj", "{C2B074A0-D03F-4A7A-996E-8E9CC45BEAC0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestNETMentor", "..\test\TestNETMentor\TestNETMentor.csproj", "{2F0D0224-F6DF-4E22-B22B-4BF54F981013}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestCartService", "..\test\TestNETMentor\TestCartService.csproj", "{2F0D0224-F6DF-4E22-B22B-4BF54F981013}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{B96874FB-93F6-4AC8-A510-FBC8E10E09D6}"
 EndProject

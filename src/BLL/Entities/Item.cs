@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace e_commerce.BLL.Entities;
+namespace CartService.BLL.Entities;
 
 public class Item
 {

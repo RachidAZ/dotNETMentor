@@ -1,11 +1,11 @@
-﻿using e_commerce.BLL.Entities;
+﻿using CartService.BLL.Entities;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.Extensions.Options;
 using MongoDB.EntityFrameworkCore.Extensions;
 using System.Reflection.Metadata;
 
-namespace NETMentor.DAL;
+namespace CartService.DAL;
 
 public class ApplicationDBContext : DbContext
 {
@@ -24,7 +24,7 @@ public class ApplicationDBContext : DbContext
 
     //    if (!optionsBuilder.IsConfigured)
     //    {
-    //        optionsBuilder.UseMongoDB(conn, "NETMentor");
+    //        optionsBuilder.UseMongoDB(conn, "CartService");
     //    }
     //}
 

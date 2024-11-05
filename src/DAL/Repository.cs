@@ -1,8 +1,8 @@
-﻿using e_commerce.BLL.Entities;
-using e_commerce.DAL;
+﻿using CartService.BLL.Entities;
+using CartService.DAL;
 using Microsoft.EntityFrameworkCore;
 
-namespace NETMentor.DAL
+namespace CartService.DAL
 {
     public class Repository<T,TKey> : IRepository<T, TKey> where T : class
     {

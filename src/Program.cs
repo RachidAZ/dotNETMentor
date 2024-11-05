@@ -1,9 +1,8 @@
-using e_commerce.BLL;
-using e_commerce.BLL.Entities;
-using e_commerce.DAL;
+using CartService.BLL;
+using CartService.BLL.Entities;
+using CartService.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
-using NETMentor.DAL;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -17,7 +16,7 @@ builder.Services.AddSwaggerGen();
 
 // add EF
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
-options.UseMongoDB(builder.Configuration.GetConnectionString("NETMentor_mongoDB"), "NETMentor"));
+options.UseMongoDB(builder.Configuration.GetConnectionString("CartService_mongoDB"), "CartService"));
 
 
 
@@ -27,7 +26,7 @@ options.UseMongoDB(builder.Configuration.GetConnectionString("NETMentor_mongoDB"
 // add repository DI
 builder.Services.AddScoped<IRepository<Cart, Guid>, Repository<Cart, Guid>>();
 builder.Services.AddScoped<IRepository<Item, int>, Repository<Item, int>>();
-builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<ICartService, CartService.BLL.CartService>();
 
 var app = builder.Build();
 

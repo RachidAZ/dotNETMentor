@@ -1,16 +1,16 @@
-﻿using e_commerce.BLL.Entities;
-using e_commerce.DAL;
+﻿using CartService.BLL.Entities;
+using CartService.DAL;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Http.HttpResults;
-using NETMentor.BLL;
-using NETMentor.DAL;
+using CartService.BLL;
+using CartService.DAL;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace e_commerce.BLL;
+namespace CartService.BLL;
 
 public class CartService : ICartService
 {
