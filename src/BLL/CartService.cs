@@ -50,6 +50,8 @@ public class CartService : ICartService
     public Result<Cart> GetCart(Guid cartId)
     {
         var cart = _cartRepository.GetByKey(cartId);
+        //var carts = _cartRepository.GetAll();
+        //var cart=carts.FirstOrDefault(k=> k.Id == cartId);
         if (cart is null)
             return Result<Cart>.Failure("Cart Unfound");
         else
@@ -78,5 +80,15 @@ public class CartService : ICartService
         // _cartRepository.GetByKey(cartId).Items.Remove(item);
         _itemRepository.Delete(item);
 
+    }
+
+    public void UpdateItem(Item item)
+    {
+        _itemRepository.Update(item);
+    }
+
+    public IEnumerable<Item> GetItems()
+    {
+        return _itemRepository.GetAll();
     }
 }

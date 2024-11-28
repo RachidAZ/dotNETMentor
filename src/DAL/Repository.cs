@@ -18,8 +18,8 @@ namespace CartService.DAL
         public void Add(T entity)
         {
             _context.Set<T>().Add(entity);
-            _context.SaveChanges();
-             
+            _context.SaveChanges();            
+
         }
 
         public void Delete(T entity)

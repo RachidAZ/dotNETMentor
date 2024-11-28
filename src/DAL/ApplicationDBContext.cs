@@ -32,16 +32,16 @@ public class ApplicationDBContext : DbContext
     {
 
 
-        //modelBuilder.Entity<Cart>()
-        //    .ToCollection("Carts");
-
-        //modelBuilder.Entity<Item>()
-        //    .ToCollection("Items");
-
         modelBuilder.Entity<Cart>()
-            .HasMany(c => c.Items)
-            .WithOne()
-            .OnDelete(DeleteBehavior.Cascade);
+           .ToCollection("Carts");
+
+        modelBuilder.Entity<Item>()
+            .ToCollection("Items");
+
+        //modelBuilder.Entity<Cart>()
+        //    .HasMany(c => c.Items)
+        //    .WithOne()
+        //    .OnDelete(DeleteBehavior.Cascade);
 
 
        

@@ -14,4 +14,12 @@ public interface ICartService
     Result<Cart> GetCart(Guid cartId);
 
     void CreateCart(Guid id);
+
+    //logic: get item by id, mofidy the properties, reload cart items?
+    void UpdateItem(Item item);
+
+    IEnumerable<Item> GetItems();
+
+   
+
 }

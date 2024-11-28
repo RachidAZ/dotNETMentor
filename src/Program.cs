@@ -34,7 +34,7 @@ builder.Services.AddSwaggerGen();
 
 // add EF
 builder.Services.AddDbContext<ApplicationDBContext>(options =>
-options.UseMongoDB(builder.Configuration.GetConnectionString("CartService_mongoDB"), "CartService"));
+options.UseMongoDB(builder.Configuration.GetConnectionString("CartService_mongoDB"), "NETMentor"));
 
 
 
@@ -42,9 +42,13 @@ options.UseMongoDB(builder.Configuration.GetConnectionString("CartService_mongoD
 
 
 // add repository DI
-builder.Services.AddScoped<IRepository<Cart, Guid>, Repository<Cart, Guid>>();
+builder.Services.AddScoped<IRepository<Cart, Guid>, RepositoryCart>();
 builder.Services.AddScoped<IRepository<Item, int>, Repository<Item, int>>();
 builder.Services.AddScoped<ICartService, CartService.BLL.CartService>();
+
+
+// add background service to listen to RabbitMQ events
+builder.Services.AddHostedService<CartBackgroundService>();
 
 
 var app = builder.Build();

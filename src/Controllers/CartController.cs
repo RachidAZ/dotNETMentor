@@ -44,8 +44,13 @@ public class CartController : ControllerBase
     public ActionResult AddCartItems( Guid cartId,  Item item)
     {
 
-        _cartService.AddCartItem(cartId, item);
-        return Ok();
+        var res=_cartService.AddCartItem(cartId, item);
+        if(res.IsSuccess)
+            return Ok();
+        else
+        {
+            return BadRequest(res.Error);
+        }
 
     }
     [MapToApiVersion(1)]
