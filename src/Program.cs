@@ -5,6 +5,7 @@ using CartService.DAL;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Diagnostics;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using RabbitMQ.Client;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -48,7 +49,20 @@ builder.Services.AddScoped<ICartService, CartService.BLL.CartService>();
 
 
 // add background service to listen to RabbitMQ events
-builder.Services.AddHostedService<CartBackgroundService>();
+builder.Services.AddSingleton<IConnectionFactory>(sp =>
+{
+    var connectionFactory = new ConnectionFactory
+    {
+        HostName = "localhost",
+        //Port = rabbitMQSettings.Port,
+        //UserName = rabbitMQSettings.User,
+        //Password = rabbitMQSettings.Password,
+        //VirtualHost = rabbitMQSettings.VirtualHost,
+        DispatchConsumersAsync = true
+    };
+    return connectionFactory;
+});
+builder.Services.AddHostedService<CartConsumer>();
 
 
 var app = builder.Build();
